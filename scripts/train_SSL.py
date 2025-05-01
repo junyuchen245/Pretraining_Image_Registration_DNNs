@@ -52,7 +52,7 @@ def main():
     model.cuda()
     del tm
     
-    save_dir = 'TransMorphDWinSSL_HWD_{}_{}_{}_Scale_{}_Wsize_{}_PreTrain_RS_SSIM_{}_diffusion_{}_sKL_{}/'.format(H, W, D, scale_factor, win_factor, weights[0], weights[1], weights[2])
+    save_dir = 'TransMorphSSL_HWD_{}_{}_{}_Scale_{}_Wsize_{}_PreTrain_RS_SSIM_{}_diffusion_{}_sKL_{}/'.format(H, W, D, scale_factor, win_factor, weights[0], weights[1], weights[2])
     if not os.path.exists('experiments/' + save_dir):
         os.makedirs('experiments/' + save_dir)
     if not os.path.exists('logs/' + save_dir):
