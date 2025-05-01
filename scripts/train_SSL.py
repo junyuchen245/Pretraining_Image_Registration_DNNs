@@ -19,14 +19,6 @@ import torch.nn.functional as F
 import MIR.random_image_generation as rs
 from MIR.utils import mk_grid_img
 
-def MSE_torch(x, y):
-    return torch.mean((x - y) ** 2)
-
-def prepare_input(resolution):
-    x = torch.FloatTensor(1, *resolution)
-    y = torch.FloatTensor(1, *resolution)
-    return dict(inputs=(x,y))
-
 def main():
     iter_max = 3000
     val_step = 50
@@ -186,6 +178,7 @@ def save_checkpoint(state, save_dir='models', filename='checkpoint.pth.tar', max
     while len(model_lists) > max_model_num:
         os.remove(model_lists[0])
         model_lists = natsorted(glob.glob(save_dir + '*'))
+        
 if __name__ == '__main__':
     '''
     GPU configuration
