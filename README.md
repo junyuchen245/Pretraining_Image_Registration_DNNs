@@ -13,8 +13,12 @@ This approach is implemented in the [MIR package](https://github.com/junyuchen24
 
 ## Pretraining and Fine-tuning Pipeline
 ### Step 1: Pretraining the encoder on a proxy task of registering random images
-Run `python -u train_SSL.py` to initiate the pretraining. In each iteration, a pair of random images is generated using `data=rs.gen_shapes(.)`, in which `data[0]` and `data[1]` contains moving and fixed random images along with their binary label maps stored in `data[2]` and `data[3]`.
+Run `python -u train_SSL.py` to initiate the pretraining. We first extract the encoder from the registration DNN and connect it to a lightweight decoder for pretraining.
+https://github.com/junyuchen245/Pretraining_Image_Registration_DNNs/blob/88a330b9b26313a25d346725df0464cfcdc32968/scripts/train_SSL.py#L36-L45
+In each iteration, a pair of random images is generated using `data=rs.gen_shapes(.)`, in which `data[0]` and `data[1]` contains moving and fixed random images along with their binary label maps stored in `data[2]` and `data[3]`.
 https://github.com/junyuchen245/Pretraining_Image_Registration_DNNs/blob/88a330b9b26313a25d346725df0464cfcdc32968/scripts/train_SSL.py#L84-L86
+We then simply compute the registration loss for pretraining.
+https://github.com/junyuchen245/Pretraining_Image_Registration_DNNs/blob/88a330b9b26313a25d346725df0464cfcdc32968/scripts/train_SSL.py#L105-L106
 ### Step 2: Fine-tuning the DNN on a downstream registration task
 TBA
 
