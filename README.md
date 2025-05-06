@@ -20,7 +20,9 @@ https://github.com/junyuchen245/Pretraining_Image_Registration_DNNs/blob/88a330b
 We then simply compute the registration loss for pretraining.
 https://github.com/junyuchen245/Pretraining_Image_Registration_DNNs/blob/88a330b9b26313a25d346725df0464cfcdc32968/scripts/train_SSL.py#L105-L106
 ### Step 2: Fine-tuning the DNN on a downstream registration task
-TBA
+Run `python -u train_TransMorph_SSL.py` to initiate the fine-tuning. We first load the pretrained encoder from the pretraining.
+https://github.com/junyuchen245/Pretraining_Image_Registration_DNNs/blob/adae0b487e6968a47192d1e1088ba5c2ca4cd192/scripts/train_TransMorph_SSL.py#L53-L62
+We then train the model as usual.
 
 ## Pretraining Strategy Overview
 <img src="https://github.com/junyuchen245/Pretraining_Image_Registration_DNNs/blob/main/figs/overview.jpg" width="800"/>
